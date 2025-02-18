@@ -1,6 +1,6 @@
 document.addEventListener("keydown", (event) => {
   // send event.key on the body of the request
-  fetch("http://localhost:1000/log", {
+  fetch("http://localhost:2000/log", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

