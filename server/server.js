@@ -12,6 +12,7 @@ const app = express();
 
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 
 //
@@ -21,10 +22,9 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
   const { username, password } = req.body;
-  if (!username === "mohamed-msila" || !password === "mohamed2025") {
-    return res.send(401);
+  if (username !== "mohamed-msila" || password !== "mohamed2025") {
+    return res.sendStatus(401);
   }
-  console.log(username, password);
   res.status(200).redirect("/login");
 });
 
