@@ -22,10 +22,8 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
   const { username, password } = req.body;
-  if (username !== "mohamed-msila" || password !== "mohamed2025") {
-    return res.sendStatus(401);
-  }
-  res.status(200).redirect("/login");
+  console.log(username, password);
+  res.status(200).send();
 });
 
 const PORT = 1000;
