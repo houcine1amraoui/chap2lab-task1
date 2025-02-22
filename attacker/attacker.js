@@ -1,10 +1,11 @@
 import express from "express";
-
+import cors from "cors";
 // Initialization
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // logging endpoint
 app.post("/log", (req, res) => {
