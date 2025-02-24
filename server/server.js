@@ -41,9 +41,8 @@ app.post("/login", function (req, res) {
   if (result) {
     return res.send("Welcome");
   } else {
-    return res.status(200).send("Invalid username or password");
+    return res.status(401).send("Invalid username or password");
   }
-  res.status(200).send();
 });
 
 const PORT = 1000;
