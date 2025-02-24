@@ -18,11 +18,11 @@ app.use(cors());
 const users = [
   {
     username: "mohamed-msila",
-    password: "mohamed2024",
+    password: "mohamed2025",
   },
   {
     username: "amina-msila",
-    password: "amina2024",
+    password: "amina2025",
   },
 ];
 
