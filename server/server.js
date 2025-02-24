@@ -18,11 +18,11 @@ app.use(cors());
 const users = [
   {
     username: "mohamed-msila",
-    clearPassword: "mohamed2024",
+    password: "mohamed2024",
   },
   {
     username: "amina-msila",
-    clearPassword: "amina2024",
+    password: "amina2024",
   },
 ];
 
@@ -34,7 +34,7 @@ app.get("/login", function (req, res) {
 app.post("/login", function (req, res) {
   const { username, password } = req.body;
   const result = users.find((user) => {
-    return user.username === username && user.password === user.password;
+    return user.username === username && user.password === password;
   });
   if (result) {
     return res.send("Welcome");
