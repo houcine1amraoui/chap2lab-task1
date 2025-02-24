@@ -33,8 +33,6 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
   const { username, password } = req.body;
-  console.log(username, password);
-  // validation
   const result = users.find((user) => {
     return user.username === username && user.password === user.password;
   });
