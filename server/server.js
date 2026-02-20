@@ -10,6 +10,9 @@ const __dirname = path.dirname(__filename);
 // Initialization
 const app = express();
 
+// register view engine
+app.set("view engine", "ejs");
+
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,7 +31,7 @@ const users = [
 
 //
 app.get("/login", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "login.html"));
+  res.render("login");
 });
 
 app.post("/login", function (req, res) {
